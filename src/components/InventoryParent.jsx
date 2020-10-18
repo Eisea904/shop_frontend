@@ -1,18 +1,20 @@
 import React from 'react'
 import ItemContainer from './ItemContainer'
-import FilterDropdown from './FilterDropdown'
-import FormAddItem from './FormAddItem'
+// import FilterDropdown from './FilterDropdown'
+// import FormAddItem from './FormAddItem'
 
-let link = "backend server link"
+// let itemsLink = "http://localhost:3000/items"
+// let partiesLink = "http://localhost:3000/parties"
+// let inventoriesLink = "http://localhost:3000/inventories"
 
-class InventoryParent extends Component {
+class InventoryParent extends React.Component {
 
   state = {
-      items: []
+      items: [],
   }
 
   componentDidMount(){
-    fetch(link)
+    fetch("http://localhost:3000/items") 
     .then(res => res.json())
     .then(arrayOfItems => {
       this.setState({
@@ -24,9 +26,9 @@ class InventoryParent extends Component {
   render() {
     return (
       <main>
-        <FilterDropdown/>
+        {/* <FilterDropdown/> */}
         <ItemContainer items={this.state.items}/>
-        <FormAddItem/>
+        {/* <FormAddItem/> */}
       </main>
     )
   }
